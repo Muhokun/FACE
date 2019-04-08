@@ -1,0 +1,31 @@
+from imutils import paths
+import face_recognition
+import argparse
+import pickle
+import cv2
+import os
+###################################################Create###################################################
+print("Reading faces !!!")
+Image = list(paths.list_images(args["dataset"]))
+knownEncodings = []
+array_names = []
+###################################################FOR Image###################################################
+for (i, imagePath) in enumerate(Image):
+	print("reading {}/{}".format(i + 1,
+		len(Image)))
+	name_1 = imagePath.split(os.path.sep)[-2]
+	image = cv2.imread(imagePath)
+	colour = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+	New_image = face_recognition.face_locations(colour,
+		model=args["detection_method"])
+	encodings = face_recognition.face_encodings(colour, New_image)
+################################################Encoding######################################################
+	for j in encodings:
+		knownEncodings.append(j)
+		array_names.append(name_1)
+###################################################END###################################################
+print("downloading")
+data = {"encodings": knownEncodings, "Users_names": array_names}
+f = open(args["encodings"], "wb")
+f.write(pickle.dumps(data))
+f.close()
