@@ -2,7 +2,7 @@ import face_recognition
 import argparse
 import pickle
 import cv2
-#######################################Variables#################################################
+#######################################V ariables#################################################
 print("Encoding !!!")
 New = pickle.loads(open(args["encodings"], "rb").read())
 image_01 = cv2.imread(args["image"])
