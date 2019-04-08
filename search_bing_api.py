@@ -4,7 +4,7 @@ import requests
 import cv2
 import os
 
-######################################################DATASET THAT WAS BUILT BEFOREHAND NOT BY ME :D######################################################
+###################################################### DATASET THAT WAS BUILT BEFOREHAND NOT BY ME :D######################################################
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-q", "--query", required=True,
