@@ -4,7 +4,7 @@ import argparse
 import pickle
 import cv2
 import os
-###################################################Create###################################################
+######################################## ###########Create###################################################
 print("Reading faces !!!")
 Image = list(paths.list_images(args["dataset"]))
 knownEncodings = []
